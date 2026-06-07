@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:label="Weft"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true">
+        <!-- usesCleartextTraffic: the DC origins are reached over the
+             WireGuard mesh / SSH forward, which provide encryption; the
+             webui listener itself is plain HTTP on a private address. -->
+
+<!--
+        WireGuard transport (optional). Uncomment once the dependency
+        com.wireguard.android:tunnel is added (see WireGuardTunnel.kt);
+        it provides the VpnService implementation, declared here:
+
+        <service
+            android:name="com.wireguard.android.backend.GoBackend$VpnService"
+            android:permission="android.permission.BIND_VPN_SERVICE"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+        </service>
+-->
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
